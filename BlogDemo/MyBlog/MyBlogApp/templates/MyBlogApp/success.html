@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'MyBlogApp/style.css'%}">
+</head>
+
+<body>
+    <div class="nav_container">
+        <div class="nav_heading_container">
+            <h2 class="nav_heading"> <a class="nav_home_link" href="{% url 'MyBlogApp:index' %}"> My Blog </a></h2>
+        </div>
+        {% comment %} <div class="nav_widget">
+            <div class="nav_login_container">
+                <a class="nav_login" href="#"> Login </a>
+            </div>
+            <div class="nav_register_container">
+                <a class="nav_register" href="{% url 'MyBlogApp:register' %}">Register</a>
+            </div>
+        </div> {% endcomment %}
+    </div>
+
+    <div class="register_form">
+        <h4 class=""> {{msg}} successfull ! </h4>
+    </div>
+
+    <footer class="footer">
+
+        <div class="copyright">
+
+            <h3 class="name"> My Blog </h3>
+            <h5 class="copyright_mark"> All rights reserved @ 2021 </h5>
+
+        </div>
+
+    </footer>
+</body>
+
+</html>

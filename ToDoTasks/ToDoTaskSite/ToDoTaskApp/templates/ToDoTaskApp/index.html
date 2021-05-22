@@ -1,0 +1,14 @@
+{% extends "ToDoTaskApp/base.html" %}
+
+{% block body %}
+
+<div class="widgets">
+    <div class="widget">
+        <a class="widget_link" href="{% url 'ToDoTaskApp:addTask' %}"> Add Task </a>
+    </div>
+    <div class="widget">
+        <a class="widget_link" href="{% url 'ToDoTaskApp:viewTasks' %}"> View Task </a>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'MyBlogApp/base.html' %}
+
+{% block body %}
+
+        <div class="register_form">
+            <h4 class="warning"> Failed login attempt. <a href="{% url 'MyBlogApp:login_fresh' %}" class="login_again">Try again </h4>
+        </div>
+
+{%endblock %}

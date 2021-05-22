@@ -1,0 +1,370 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+
+    background-image: linear-gradient(to right, #a685e2, #6155a6);
+    background-size: cover;
+    background-position: top;
+    box-sizing: border-box;
+    font-family: 'Fredoka One', cursive;
+    line-height: 1.8;
+}
+
+.nav_container {
+
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: flex-start;
+    padding: 5px;
+    width: 12%;
+}
+
+.logo_container {
+    width: 60px;
+    height: 60px;
+
+}
+
+.logo {
+    display: block;
+    width: 100%;
+    border-radius: 70px;
+}
+
+.heading {
+    margin: auto;
+    color: #fdfaf6;
+    font-size: 30px;
+    font-family: 'Fredoka One', cursive;
+}
+
+.home_link,
+.home_link:active,
+.home_link:visited {
+    text-decoration: none;
+}
+
+.widgets {
+
+    margin: 15% 40%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.widget {
+    width: 40%;
+    padding: 50px;
+    border: 2px solid transparent;
+    background-image: linear-gradient(to right, #f0a500, #fbeeac);
+    background-size: cover;
+    border-radius: 30px;
+    border: 1px solid transparent;
+    text-align: center;
+}
+
+.widget:first-child {
+    margin-bottom: 40px;
+}
+
+.widget_link {
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: inherit;
+    color: #fdfaf6;
+}
+
+.container {
+
+    width: 50%;
+    margin-top: 8%;
+    margin-left: 25%;
+    padding: 20px;
+
+}
+
+.addform {
+
+    width: 60%;
+    padding: 20px;
+    margin: auto;
+}
+
+.container_heading_box {
+
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.container_heading {
+
+    font-size: 35px;
+    color: #fdfaf6;
+
+}
+
+.container_field {
+    display: flex;
+    flex-direction: column;
+}
+
+.formlabel {
+
+    font-size: 20px;
+    color: #fdfaf6;
+    margin-bottom: 15px;
+}
+
+.formfield {
+
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-size: 15px;
+    transition: all 0.2s;
+    margin-bottom: 40px;
+    font-family: inherit;
+}
+
+.formfield:nth-child(2) {
+
+    height: 100px;
+}
+
+.formfield:focus {
+    outline: none;
+    border-bottom: 5px solid #542e71;
+}
+
+.submit_field {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 20px;
+    font-size: 20px;
+    font-family: inherit;
+    border: 1px solid transparent;
+    background-image: linear-gradient(to right, #fdca40, #fea82f);
+    background-size: cover;
+    color: #fdfaf6;
+    border-radius: 10px;
+    transition: all 0.4s;
+}
+
+.btn:hover {
+
+    transform: translateY(5px);
+}
+
+.btn:focus,
+.btn:active {
+    transform: translateY(-2px);
+    box-shadow: 2px 2px 5px #ffc93c;
+}
+
+.success_message {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.messages {
+
+    font-size: 20px;
+    color: #301b3f;
+
+}
+
+.taskviewccontainer {
+
+    width: 30%;
+    margin-top: 10%;
+    margin-left: 40%;
+    padding: 5px;
+}
+
+.containerheading {
+
+    padding: 5px;
+    text-align: center;
+    margin-bottom: 30px;
+
+}
+
+.tasksheading {
+
+    font-size: 35px;
+    color: #fdfaf6;
+    transition: all 0.4s;
+    font-weight: 700;
+
+}
+
+.tasksheading:hover {
+    transform: skewY(10deg) scale(2);
+}
+
+.containerbody {
+
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.taskbox {
+    display: flex;
+    flex-direction: column;
+    margin: auto 0px 30px 0px; 
+}
+
+.taskcheckbox {
+    
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    border-radius: 50px;
+}
+
+
+.task {
+    font-size: 20px;
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 40px;
+    margin-top: -24px;
+}
+
+.taskLink,
+.taskLink:visited,
+.taskLink:active {
+
+    text-decoration: none;
+    font-weight: 400;
+    color: #fff;
+
+}
+
+.buttoncontainer {
+
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    margin: auto;
+
+}
+
+.btn_1,
+.btn_1:active,
+.btn_1:visited {
+    margin-bottom: 10px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 2px auto;
+}
+
+.buttoncontainer_1 {
+    padding: 5px;
+    text-align: center;
+    margin: auto;
+}
+
+.buttoncontainer_1_1 {
+    text-align: center;
+}
+
+.taskbody {
+    display: flex;
+    flex-direction: row;
+    justify-content: justify-content;
+    margin-bottom: 15px;
+    margin-left: 25px;
+    transition: all 0.4s;
+}
+
+.taskbody:hover {
+    transform: translateY(-3px);
+}
+
+.tasklabel {
+    font-size: 25px;
+    color: #542e71;
+    font-weight: 700;
+    width: 45%;
+}
+
+.taskdata {
+    font-size: 20px;
+    color: #ffdf6b;
+    width: 50%;
+}
+
+.confirmbox {
+    width: 50%;
+    margin-top: 10%;
+    margin-left: 25%;
+    text-align: center;
+}
+
+.confirmlabel {
+    font-size: 20px;
+    font-weight: 400;
+
+}
+
+.btn_cancel {
+    display: inline-block;
+    padding: 20px;
+    font-size: 20px;
+    font-family: inherit;
+    border: 1px solid transparent;
+    background-image: linear-gradient(to right, #fdca40, #fea82f);
+    background-size: cover;
+    color: #fdfaf6;
+    border-radius: 10px;
+    transition: all 0.4s;
+
+}
+
+.btn_cancel_link,
+.btn_cancel_link:visited,
+.btn_cancel_link:active {
+
+    text-decoration: none;
+    color: #fdfaf6;
+}
+
+.btn_cancel:hover {
+    transform: translateY(5px);
+}
+
+.btn_cancel:active,
+.btn_cancel:focus {
+    transform: translateY(-2px);
+    box-shadow: 2px 2px 5px #ffc93c;
+}
+
+.cancelholder {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+
+
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&family=Fredoka+One&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'ToDoTaskApp/style.css' %}">
+</head>
+
+<body>
+
+    <a class="home_link" href="{% url 'ToDoTaskApp:index' %}">
+        <div class="nav_container">
+
+            <div class="logo_container">
+                <img class="logo" src="{% static 'img/todologo.jpg' %}">
+            </div>
+            <h2 class="heading"> To Do App </h2>
+        </div>
+    </a>
+
+
+    {% block body %}
+
+    {% endblock %}
+
+
+
+</body>
+
+</html>

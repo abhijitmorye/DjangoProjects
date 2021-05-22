@@ -1,0 +1,298 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    box-sizing: border-box;
+    width: 90%;
+    margin: 10px auto;
+    font-family: 'Averia Serif Libre', cursive;
+    line-height: 1.7;
+}
+
+.nav_container {
+    background-color: #da7f8f;
+    padding: 30px 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 100px;
+
+}
+
+.nav_heading_container {
+    font-size: 20px;
+    width: 30%;
+
+}
+
+
+.nav_heading {
+    font-weight: 700;
+    color: #ffff;
+}
+
+.nav_home_link,
+nav_home_link:visited,
+nav_home_link:active {
+    text-decoration: none;
+    color: #ffff;
+    font-weight: 700;
+}
+
+.nav_widget {
+    width: 30%;
+    margin: auto 10px;
+    display: flex;
+    justify-content: flex-end;
+    text-align: right;
+    font-size: 20px;
+}
+
+.nav_login_container {
+    width: 45%;
+}
+
+.nav_login,
+.nav_login:active,
+.nav_login:visited {
+    color: #fff;
+    text-decoration: none;
+
+}
+
+.nav_register_container {
+    width: 45%;
+}
+
+.nav_register,
+.nav_register:active,
+.nav_register:visited {
+    color: #fff;
+    text-decoration: none;
+
+}
+
+
+.register_form {
+
+    width: 35%;
+    margin: auto;
+    padding: 50px 50px;
+    background-color: #faf3f3;
+    text-align: center;
+    color: #000;
+    border-radius: 20px;
+    box-shadow: 0px 5px 5px #000;
+    margin-bottom: 100px;
+
+
+}
+
+.register_form_heading {
+    font-size: 30px;
+    font-weight: 400;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.register_heading {
+    color: #000;
+}
+
+.register_input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.input_label {
+    font-size: 20px;
+    font-weight: 400;
+
+}
+
+.input {
+    width: 60%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 3px solid transparent;
+}
+
+.input:focus {
+    border: 3px solid transparent;
+}
+
+.submit {
+
+    padding: 5px;
+}
+
+.btn {
+    color: white;
+    /* background-color: #eec4c4; */
+    background-color: #da7f8f;
+    font-size: 20px;
+    font-family: inherit;
+    padding: 10px 10px;
+    border-radius: 3px;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    background-color: #eec4c4;
+}
+
+.btn:active {
+
+    transform: translateY(3px);
+}
+
+
+.warning {
+
+    font-size: 20px;
+    font-family: inherit;
+    font-weight: 400;
+    color: #383e56;
+
+}
+
+.login_again,
+.login_again:active,
+.login_again:visited {
+
+    text-decoration: none;
+    font-size: 20px;
+    font-family: inherit;
+    font-weight: 700;
+    color: #ff005c;
+}
+
+.user_widget {
+    width: 40%;
+    margin: auto 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-align: right;
+    font-size: 20px;
+}
+
+.user_profile {
+    width: 45%;
+    padding: 5px 5px;
+}
+
+.user_name {
+    text-decoration: none;
+    font-size: 20px;
+    color: #fdfaf6;
+    font-weight: 700;
+}
+
+.user_pic {
+    width: 40px;
+    height: 30px;
+    
+}
+
+.user_img {
+    width: 100%;
+    background-size: cover;
+    border-radius: 50px;
+    border: 2px solid #000;
+}
+
+.footer {
+
+    background-color: #da7f8f;
+    padding: 50px 50px;
+}
+
+
+.copyright {
+
+    margin: auto;
+    text-align: center;
+    padding: 10px 10px;
+}
+
+.name {
+    font-size: 25px;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.copyright_mark {
+    font-size: 15px;
+    color: #fff;
+
+}
+
+.main_container {
+    width: 60%;
+    margin: 20px auto 20px auto;
+    padding: 10px;
+}
+
+.profile_container  {
+    width: 20%;
+    height: 20%;
+    margin: 2px auto 50px;
+    
+
+
+}
+
+.profile_img {
+    max-width: 100%;
+    max-height: 100%;
+    background-size: cover;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    box-shadow: 2px 4px 5px #000;
+}
+
+.profile_info_container {
+    width: 70%;
+    margin: 5px auto 30px;
+}
+
+.profile_info {
+    text-align: center;
+    padding: 10px;
+}
+
+.info {
+    font-size: 30px;
+    color: #f5abc9;
+
+} 
+
+.profile_widgets {
+    width: 70%;
+    margin: 120px auto 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.widget {
+
+    padding: 10px;
+}
+
+.btn_widget {
+    padding: 30px;
+    text-decoration: none;
+
+}
+
+.back-btn {
+    text-decoration: none;
+}

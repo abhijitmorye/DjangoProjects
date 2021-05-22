@@ -1,0 +1,16 @@
+{% extends 'ToDoTaskApp/base.html' %}
+
+{% block body %}
+
+<div class="confirmbox">
+    <form method="POST" , enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="submit" class="confirmlabel"> Are you sure to remove the task? </label>
+        <div class="cancelholder">
+            <input type="submit" name="submit" value="remove task" class="btn_cancel">
+            <a href="{% url 'ToDoTaskApp:viewSingleTask' id %}" class="btn_cancel btn_cancel_link"> Cancel </a>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

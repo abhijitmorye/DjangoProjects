@@ -1,0 +1,32 @@
+{% extends 'ToDoTaskApp/base.html' %}
+
+{% block body %}
+
+<div class="taskviewccontainer">
+    <div class="containerheading">
+        <h4 class="tasksheading"> All Tasks </h4>
+    </div>
+
+    <div class="containerbody">
+
+        {% for task in tasks %}
+
+        <div class="taskbox">
+            <input type="checkbox" class="taskcheckbox" name="check" id="{{ task.id }}">
+            <label for="check[]" class="task">
+                <a href="{% url 'ToDoTaskApp:viewSingleTask' task.id %}" class="taskLink"> {{task}} </a>
+            </label>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    <div class="buttoncontainer_1">
+        <div class="buttoncontainer_1_1">
+            <a href="{% url 'ToDoTaskApp:addTask' %}" class="btn btn_1"> Add Task </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

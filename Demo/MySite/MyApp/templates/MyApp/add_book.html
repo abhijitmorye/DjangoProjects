@@ -1,0 +1,25 @@
+{% extends 'MyApp/base.html' %}
+
+
+{% block body%}
+
+<br>
+<form method="POST" enctype="multipart/form-data"> 
+    {% csrf_token %}
+    <!-- name filed shoul be set to varibales names in models -->
+    Enter Book name
+    <input type="text" name="name" id="name" placeholder="enter name of the book"></input>
+    <br><br>
+    Enter Genre 
+    <input type="text" name="genre" id="genre", placeholder="Enter genre">
+   <br><br>
+    Enter Price 
+    <input type="text" name="price" id="price" placeholder="Enter price">
+    <br><br>
+    Add cover
+    <input type="file", name="book_image", id="book_image">
+    <br><br>
+    <input type="submit" name="">
+    <a class="btn btn-warning" href="{% url 'MyApp:products' %}"> Back </a>
+</form>
+{% endblock %}

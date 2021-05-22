@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% load static %}
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'MyBlogApp/style.css'%}">
+</head>
+
+<body>
+    <div class="nav_container">
+        <div class="nav_heading_container">
+            <h2 class="nav_heading"> <a class="nav_home_link" href="{% url 'MyBlogApp:index' %}"> My Blog </a></h2>
+        </div>
+        {% comment %} <div class="nav_widget">
+            <div class="nav_login_container">
+                <a class="nav_login" href="#"> Login </a>
+            </div>
+            <div class="nav_register_container">
+                <a class="nav_register" href="{% url 'MyBlogApp:register' %}">Register</a>
+            </div>
+        </div> {% endcomment %}
+    </div>
+
+    <div class="register_form">
+        <form method='POST' enctype='multipart/form-data'>
+            {% csrf_token %}
+            <div class="register_form_heading">
+                <h4 class="register_heading"> Registeration </h4>
+            </div>
+            <div class="register_input_box">
+                <div class="register_input">
+                    <label for="fname" class="input_label">First name:</label>
+                    <input type="text" class="input" name="name" id="name" placeholder="Enter you name" requeired>
+                </div>
+
+                <div class="register_input">
+                    <label for="email_id" class="input_label">Email ID:</label>
+                    <input type="text" class="input" name="email_id" id="email_id" placeholder="Enter you email ID"
+                        requeired>
+                </div>
+
+                <div class="register_input">
+                    <label for="password" class="input_label">Enter password</label>
+                    <input type="password" class="input" name="password" id="password" placeholder="Enter you password"
+                        requeired>
+                </div>
+
+                <div class="register_input">
+                    <label for="phn_number" class="input_label">Enter phone</label>
+                    <input type="text" class="input" name="phn_number" id="phn_number" placeholder="Enter you phone"
+                        requeired>
+                </div>
+
+                <div class="register_input">
+                    <label for="profileImage" class="input_label">Upload profile Image</label>
+                    <input type="file" class="input" name="profileImage" id="profileImage">
+                </div>
+
+                <div class="submit">
+                    <input type="submit" class="btn" name="">
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <footer class="footer">
+
+        <div class="copyright">
+
+            <h3 class="name"> My Blog </h3>
+            <h5 class="copyright_mark"> All rights reserved @ 2021 </h5>
+
+        </div>
+
+    </footer>
+</body>
+
+</html>

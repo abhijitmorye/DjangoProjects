@@ -1,0 +1,49 @@
+{% extends 'ToDoTaskApp/base.html' %}
+
+{% block body %}
+
+<div class="container">
+    <form method="POST" enctype="multipart/form-data" class="addform">
+
+        {% csrf_token %}
+
+        {% comment %} <div class="success_message">
+
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <h4> {{ message }} </h4>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+        </div> {% endcomment %}
+
+        <div class="container_heading_box">
+            <h3 class="container_heading"> update Task - {{task.taskTitle}} </h3>
+        </div>
+
+        <div class="container_field">
+            <label for="taskTitle" class="formlabel"> Task Title </label>
+            <input type="text" , name="taskTitle" , id="taskTitle" , value="{{task.taskTitle}}" class="formfield">
+        </div>
+
+        <div class="container_field">
+            <label for="taskDesc" class="formlabel"> Task Description </label>
+            <input type="text" , name="taskDesc" , id="taskDesc" , value="{{task.taskDesc}}" class="formfield">
+        </div>
+
+        <div class="container_field">
+            <label for="taskAuthor" class="formlabel"> Task Creator </label>
+            <input type="text" , name="taskAuthor" , id="taskAuthor" , value="{{task.taskAuthor}}" class="formfield">
+        </div>
+
+        <div class="submit_field">
+            <input type="submit" name="" class="btn" value="update">
+        </div>
+
+
+    </form>
+</div>
+
+{% endblock %}

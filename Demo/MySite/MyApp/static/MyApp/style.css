@@ -1,0 +1,44 @@
+* ,*::after, *::before {
+
+    font-size: 1.6rem;
+    box-sizing: border-box;
+    font-family: 'Lora', serif;
+} 
+
+body {
+    /* background-color: aqua; */
+}
+
+li {
+    font-size: 0.8rem;
+    color: #000;
+    list-style: none;
+}
+
+.heading-box {
+    padding: 0.5rem;
+    background-color: #faf3f3;
+}
+
+.main-heading {
+    font-size: 1.3rem;
+    color: #2978b5;
+    
+}
+
+a, a:visited, a:active {
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.book_image_box {
+    height: 100px;
+    width: 200px;
+    padding: 2px;
+    margin-bottom: 10px;
+}
+
+.book_image {
+    width: 100%;
+    background-size: cover;
+}

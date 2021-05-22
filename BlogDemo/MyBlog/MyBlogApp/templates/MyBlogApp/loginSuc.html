@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'MyBlogApp/style.css' %}">
+</head>
+
+<body>
+    <div class="nav_container">
+        <div class="nav_heading_container">
+            <h2 class="nav_heading"> <a class="nav_home_link" href="{% url 'MyBlogApp:index' %}"> My Blog </a></h2>
+        </div>
+        <div class="user_widget">
+            <div class="user_profile">
+                <h4 class="user_name"> Welcome {{user.name}} ! </h4>
+            </div>
+            <div class="user_pic">
+                <a class="user" href="{% url 'MyBlogApp:profile' %}"> <img src="{{user.profileImage.url}}" class="user_img"></img> </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% block body%}
+
+{% endblock %}
+
+<footer class="footer">
+
+    <div class="copyright">
+
+        <h3 class="name"> My Blog </h3>
+        <h5 class="copyright_mark"> All rights reserved @ 2021 </h5>
+
+    </div>
+
+</footer>
+
+</html>

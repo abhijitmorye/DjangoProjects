@@ -1,0 +1,33 @@
+{% extends 'MyBlogApp/loginSuc.html' %}
+
+{% block body %}
+
+<div class="main_container">
+    <div class="profile_container">
+        <img class="profile_img" src="{{user.profileImage.url}}"></img>
+    </div>
+    <div class="profile_info_container">
+        <div class="profile_info">
+            <h4 class="info"> <span style: "color: #f29191"> Name </span> : {{user.name}} </h4>
+        </div>
+
+        <div class="profile_info">
+            <h4 class="info"> <span style: "color: #f29191"> Email ID </span> : {{user.email_id}} </h4>
+        </div>
+
+        <div class="profile_info">
+            <h4 class="info"> <span style: "color: #f29191"> Phone </span> : {{user.phn_number}} </h4>
+        </div>
+    </div>
+
+    <div class="profile_widgets">
+        <div class="widget">
+            <a href="{% url 'MyBlogApp:updateprofile' %}" class="btn btn_widget"> Update Profile </a>
+        </div>
+        <div class="widget">
+            <a href="{% url 'MyBlogApp:logout' %}" class="btn btn_widget"> Logout </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

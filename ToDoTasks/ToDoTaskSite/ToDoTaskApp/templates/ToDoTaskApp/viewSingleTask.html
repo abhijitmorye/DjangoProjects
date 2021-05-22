@@ -1,0 +1,41 @@
+{% extends 'ToDoTaskApp/base.html' %}
+{% block body %}
+
+    <div class="taskviewccontainer">
+    <div class="containerheading">
+        <h4 class="tasksheading"> {{ task.taskTitle }} </h4>
+    </div>
+
+    <div class="containerbody">
+
+        <div class="taskbody">
+        <h4 class="tasklabel"> Task Name </h4>
+        <h5 class="taskdata"> {{task.taskTitle}} </h5>
+        </div>
+
+        <div class="taskbody">
+        <h4 class="tasklabel"> Task Description </h4>
+        <h5 class="taskdata"> {{task.taskDesc}} </h5>
+        </div>
+
+        <div class="taskbody">
+        <h4 class="tasklabel"> Task Creator </h4>
+        <h5 class="taskdata"> {{task.taskAuthor}} </h5>
+        </div>
+
+    </div>
+
+    <div class="buttoncontainer">
+        <div class="buttoncontainer_1">
+            <a href="{% url 'ToDoTaskApp:updateTask' task.id %}" class="btn btn_1"> Update </a>
+        </div>
+        <div class="buttoncontainer_1">
+            <a href="{% url 'ToDoTaskApp:deleteSingleTasks' task.id %}" class="btn btn_1"> Remove Task </a>
+        </div>
+        <div class="buttoncontainer_1">
+            <a href="#" class="btn btn_1"> Mark completed </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

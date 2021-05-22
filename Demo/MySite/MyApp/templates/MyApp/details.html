@@ -1,0 +1,21 @@
+{% extends 'MyApp/base.html' %}
+
+        
+    {% block body%}
+    <br> <br>
+        <ul>
+           <li>
+                <div height=200px width=100px>
+                <img width=100% class="book_image" src="{{books_details.book_image.url}}"> </img>
+                </div>
+            </li>
+            <br>           
+            <li> Name : {{books_details.name}} </li>
+            <li> Genre : {{books_details.genre}} </li>
+            <li> Price : {{books_details.price}} </li>
+            <br>
+            <li><a class="btn btn-warning" href="{% url 'MyApp:update' books_details.id %}"> Update This Book </a></li>
+            <br>
+            <li><a class="btn btn-warning" href="{% url 'MyApp:delete' books_details.id %}"> Delete This Book </a></li>
+        </ul>
+    {% endblock %}
