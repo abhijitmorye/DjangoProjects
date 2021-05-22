@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import UserData
+from .models import UserData, Blogs
+from MyBlog  import settings
 
 # Create your views here.
 
@@ -23,7 +24,11 @@ def register(request):
         email_id = request.POST.get('email_id',)
         password = request.POST.get('password',)
         phn_number = request.POST.get('phn_number',)
-        profileImage = request.FILES['profileImage']
+        try:
+            profileImage = request.FILES['profileImage']
+        except:
+            profileImage = "default.png"
+
         userData = UserData(name=name, email_id=email_id, password=password, phn_number=phn_number, profileImage=profileImage)
         userData.save()
         context = {
@@ -67,8 +72,11 @@ def warning(request):
 def loginSuccess(request):
     if 'user' in request.session:
         current_user = UserData.objects.get(email_id=request.session['user'])
+        blogs = Blogs.objects.all()
+        blogs = [blog for blog in blogs if blog.author.email_id == current_user.email_id]
         context = {
-            'user' : current_user
+            'user' : current_user,
+            'blogs': blogs
         }
         return render(request, 'MyBlogApp/loginSuc.html', context)
     else:
@@ -79,6 +87,7 @@ def loginSuccess(request):
 def profile(request):
     if 'user' in request.session:
         current_user = UserData.objects.get(email_id=request.session['user'])
+        
         context = {
             'user' : current_user
         }
@@ -146,6 +155,39 @@ def update(request):
             'user' : prev_info
         }
         return render(request, 'MyBlogApp/updateprofile.html', context)
+    else:
+        return redirect('/')
+
+
+
+
+def addBlog(request):
+    if request.method == 'POST':
+        if 'user' in request.session:
+            user = UserData.objects.get(email_id=request.session['user'])
+            title = request.POST.get('title',)
+            author = user
+            content = request.POST.get('content',)
+            try:
+                coverImage = request.FILES['coverImage']
+            except:
+                coverImage =  "blogdefault.jpg"
+                print(coverImage)
+
+            if title == '' or content == '':
+                return redirect('/loginsuc/')
+            else:
+                blog = Blogs(title=title,author=author,content=content,coverImage=coverImage )
+                blog.save()
+                return redirect('/loginsuc/')    
+    
+    if 'user' in request.session:
+        #old values
+        prev_info = UserData.objects.get(email_id=request.session['user'])
+        context = {
+            'user' : prev_info
+        }
+        return render(request, 'MyBlogApp/addBlog.html', context)
     else:
         return redirect('/')
 

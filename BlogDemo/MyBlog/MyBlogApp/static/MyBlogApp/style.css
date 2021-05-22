@@ -198,7 +198,7 @@ nav_home_link:active {
 .user_pic {
     width: 40px;
     height: 30px;
-    
+
 }
 
 .user_img {
@@ -240,11 +240,11 @@ nav_home_link:active {
     padding: 10px;
 }
 
-.profile_container  {
+.profile_container {
     width: 20%;
     height: 20%;
     margin: 2px auto 50px;
-    
+
 
 
 }
@@ -272,7 +272,7 @@ nav_home_link:active {
     font-size: 30px;
     color: #f5abc9;
 
-} 
+}
 
 .profile_widgets {
     width: 70%;
@@ -295,4 +295,35 @@ nav_home_link:active {
 
 .back-btn {
     text-decoration: none;
+}
+
+.Blog_containers {
+
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.main_blogs {
+    width: 75%;
+    padding: 20px;
+}
+
+.Blog_widgets {
+    width: 20%;
+    padding: 20px;
+    text-align: center;
+
+}
+
+.btn-blog-widget,
+.btn-blog-widget:visited,
+.btn-blog-widget:active {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.blog_content {
+
+    height: 300px;
 }
