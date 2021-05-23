@@ -6,7 +6,14 @@ from MyBlog  import settings
 
 
 def index(request):
-    return render(request, 'MyBlogApp/index.html')
+
+    allBlogs = Blogs.objects.all()
+
+    context = {
+        "blogs" : allBlogs
+    }
+
+    return render(request, 'MyBlogApp/index.html', context)
 
 
 
@@ -190,6 +197,32 @@ def addBlog(request):
         return render(request, 'MyBlogApp/addBlog.html', context)
     else:
         return redirect('/')
+
+
+def viewBlog(request, blog_id):
+
+    if 'user' in request.session:        
+        user = UserData.objects.get(email_id= request.session['user'])
+        blog = Blogs.objects.get(id = blog_id)
+        context = {
+            'user': user,
+            "blog" : blog
+        }
+        return render(request, 'MyBlogApp/viewuserblog.html', context)
+
+    
+    else:
+        blog = Blogs.objects.get(id = blog_id)
+        context = {
+            "blog" : blog
+        }
+        return render(request, 'MyBlogApp/viewblog.html', context)
+
+
+
+
+
+    
 
     
     

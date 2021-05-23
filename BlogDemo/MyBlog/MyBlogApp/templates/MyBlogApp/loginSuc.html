@@ -42,20 +42,32 @@
 <div class="Blog_containers">
     <div class="main_blogs">
         {%for blog in blogs%}
-
         <div class="blog_box">
+            <div class="blog_title_box">
+                <h3 class="title"> {{blog.title}} </h3>
+            </div>
+            <div class="blog_meta_box">
+                <div class="blog_author_box">
+                    <p class="blog_author"> {{blog.author.name}}</p>
+                </div>
+                <div class="blog_date_box">
+                    <p class="blog_date"> | {{blog.createdOn}}</p>
+                </div>
+            </div>
+            <div class="blog_content_box">
+                <p class="blog_content"> {{ blog.content | slice:":200" }}....</p>
+            </div>
 
-            {{blog.title}}
-
+            <div class="blog_read_button">
+                <a href="{% url 'MyBlogApp:viewblog' blog.id %}" class="btn blog_btn">Read more</a>
+                </a>
+            </div>
         </div>
         {% endfor %}
     </div>
-
-
     <div class="Blog_widgets">
         <a class="btn btn-blog-widget" href="{% url 'MyBlogApp:addblog' %}">Add Blog</a>
     </div>
-
 </div>
 {% endblock %}
 
@@ -63,7 +75,7 @@
 
     <div class="copyright">
 
-        <h3 class="name"> My Blog </h3>
+        <h3 class="footer_name"> My Blog </h3>
         <h5 class="copyright_mark"> All rights reserved @ 2021 </h5>
 
     </div>

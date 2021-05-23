@@ -222,7 +222,7 @@ nav_home_link:active {
     padding: 10px 10px;
 }
 
-.name {
+.footer_name {
     font-size: 25px;
     color: #fff;
     margin-bottom: 4px;
@@ -326,4 +326,149 @@ nav_home_link:active {
 .blog_content {
 
     height: 300px;
+}
+
+.blog_box {
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0px 2px 5px #323232;
+    border: 1px solid transparent;
+}
+
+
+
+.blog_title_box {
+    padding: 5px 5px 3px 0px;
+    margin-bottom: 3px;
+}
+
+.title {
+    font-size: 30px;
+    color: #f5abc9;
+    font-weight: 700;
+}
+
+.title:hover {
+    color: #e798ae;
+}
+
+.blog_meta_box {
+    width: 21.5%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 5px 5px 0px;
+    margin-bottom: 5px;
+    color: #907fa4;
+}
+
+.blog_content_box {
+    width: 90%;
+    padding: 5px 5px 3px 0px;
+    margin-bottom: 5px;
+    height: 90px;
+}
+
+.blog_content {
+    font-size: 20px;
+    color: #1a1c20;
+}
+
+.blog_btn,
+.blog_btn:active,
+.blog_btn:visited {
+
+    text-decoration: none;
+}
+
+.blog_creator_info {
+
+    width: 20%;
+    padding: 20px;
+
+}
+
+.creator_box {
+    margin: 30px auto 30px auto;
+    text-align: center;
+}
+
+.creator_pic {
+    width: 70%;
+    margin: 10px auto 30px auto;
+    padding: 5px;
+}
+
+.creator {
+    width: 100%;
+    background-size: cover;
+    border-radius: 80px;
+    border: 1px solid transparent;
+    box-shadow: 0px 2px 4px #323232;
+}
+
+.creator_name {
+    padding: 20px;
+    margin: 10px auto 30px auto;
+    text-align: center;
+}
+
+.name {
+    font-size: 30px;
+    color: #f5abc9;
+}
+
+.creator_info {
+
+    text-align: center;
+    font-size: 15px;
+
+}
+
+.main_view_blog_container {
+    padding: 20px;
+    margin-bottom: 60px;
+}
+
+.blog_view_main_box {
+    width: 80%;
+    margin: 10px auto 10px auto;
+}
+
+.blog_view_cover_image {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid transparent;
+}
+
+.blog_view_cover_image {
+    width: 100%;
+    background-size: cover;
+    background-position: top;
+}
+
+.blog_view_data {
+    padding: 10px;
+}
+
+.blog_view_title {
+    margin-bottom: 30px;
+}
+
+.title_mod {
+    font-size: 40px;
+}
+
+.blog_view_meta_data {
+    width: 40%;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.blog_view_autor_box {
+    margin-right: 20px;
+}
+
+.blog_view_content {
+    font-size: 25px;
+    color: #1a1c20;
 }
