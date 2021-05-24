@@ -333,6 +333,8 @@ nav_home_link:active {
     margin-bottom: 40px;
     box-shadow: 0px 2px 5px #323232;
     border: 1px solid transparent;
+    background-image: linear-gradient(to right bottom,#f8eded,#e4bad4);
+    background-size: cover;
 }
 
 
