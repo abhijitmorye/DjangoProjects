@@ -5,4 +5,4 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Welcome To TravelGo")
+    return render(request, 'TravelGoApp/index.html')

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'TravelGoApp/style.css' %}">
+</head>
+
+<body>
+    <div class="header_container">
+        <div class="nav_bar_container">
+            <div class="logo_container">
+                <a href="{% url 'TravelGoApp:index' %}" class="logo_link">
+                    <img src="{% static 'img/flight_logo.png' %}" alt="" class="logo">
+                    <p class="logo_title">TravelGo</p>
+                </a>
+            </div>
+            <div class="nav_widgets_container">
+                <ul class="nav_widgets">
+                    <li class="nav_widget"><a href="" class="nav_link">Login</a></li>
+                    <li class="nav_widget"><a href="" class="nav_link">Sign Up</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="header_sub_container">
+            <div class="heading_block">
+                <div class="main_heading">
+                    <h2 class="heading_1">
+                        TravelGo
+                    </h2>
+                </div>
+                <div class="sub_heading">
+                    <h4 class="heading_2">
+                        Explore The World
+                    </h4>
+                </div>
+            </div>
+            <div class="heading_gallery_block">
+                <img src="{% static 'img/gallery_1.jpg' %}" alt="" class="gallery_img gallery_img_1">
+                <img src="{% static 'img/gallery_2.jpg' %}" alt="" class="gallery_img gallery_img_2">
+                <img src="{% static 'img/gallery_3.jpg' %}" alt="" class="gallery_img gallery_img_3">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
