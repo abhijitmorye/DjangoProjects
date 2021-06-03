@@ -1,0 +1,148 @@
+*, 
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Serif', serif;
+}
+
+.header_container {
+    background-color: #1eae98;
+    padding: 50px;
+    display: flex;
+}
+
+.home_link,
+.home_link:active,
+.home_link:visited {
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 30px;
+    color: #faf3f3;
+    margin-right: 30px;
+    transition: all 0.2s
+}
+
+.home_link:hover {
+    color: #005a8d;
+}
+
+
+.widget_link,
+.widget_link:active,
+.widget_link:visited {
+    text-decoration: none;
+    font-family: inherit;
+    color: #fff5ab;
+    margin-right: 20px;
+    margin-top: auto;
+    transform: translateY(-10px);
+    border-bottom: 1px solid transparent;
+    padding: 3px;
+    transition: all 0.4s;
+}
+
+.widget_link:hover {
+    color: #005a8d;
+    border-bottom: 2px solid #005a8d;
+    padding: 3px;
+}
+
+.container {
+    margin: 100px auto;
+    width: 40%;
+    padding: 30px;
+}
+
+.container_heading_box {
+    padding: 30px;
+    width: 70%;
+    margin: 10px auto 20px;
+}
+
+.container_heading {
+    color: #1eae98;
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.container_heading:hover {
+    color: #a9f1df;
+}
+
+.form_container {
+    width: 80%;
+    margin: 0px auto;
+    padding: 30px;
+    background-image: linear-gradient(to right, #1eae98, #a9f1df);
+    box-shadow: 0px 2px 4px #000;
+}
+
+.add_form {
+    width: 90%;
+    margin: 0px auto;
+    padding: 10px;
+    opacity: 0.8;
+}
+
+.form_field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form_label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 25px;
+    font-family: inherit;
+    color: #334443;
+}
+
+.form_input {
+    display: block;
+    width: 100%;
+    height: 50px;
+    padding-left: 5px;
+    border: 1px solid #34656d;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 20px;
+    color: #334443;
+}
+
+.form_input:focus {
+    outline: none;
+    border-bottom: 4px solid #4ca1a3;
+}
+
+.form_field:nth-child(4) {
+    margin-bottom: 25px;
+}
+
+.form_submit {
+    width: 40%;
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #4ca1a3;
+    border: none;
+    box-shadow: 1px 2px 3px #000;
+    font-family: inherit;
+    color: #fff;
+    transition: all 0.4s;
+}
+
+.form_submit:hover {
+    background-color: #1eae98;
+    transform: translateY(-2px);
+}
+
+.form_submit:active {
+    transform: translateY(2px);
+}
