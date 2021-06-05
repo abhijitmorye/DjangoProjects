@@ -1,21 +1,23 @@
 {% extends 'ExpenseManagerApp/base.html' %}
 {% block body %}
 
-    <div class="container">
-        <div class="container_heading_box">
-            <h3 class="container_heading">Add Expense</h3>
-        </div>
-        <div class="form_container">
-            <form action="" method='POST' class="add_form" enctype="multipart/form-data"> 
-                {% csrf_token %}
+<div class="container">
+    <div class="container_heading_box">
+        <h3 class="container_heading">Add Expense</h3>
+    </div>
+    <div class="form_container">
+        <form action="" method='POST' class="add_form" enctype="multipart/form-data">
+            {% csrf_token %}
             <div class="form_field">
                 <label for="expenseName" class="form_label">Name</label>
-                <input type="text" class="form_input" name="expenseName" id="expenseName" placeholder="Enter Expense Name">
-            </div>  
+                <input type="text" class="form_input" name="expenseName" id="expenseName"
+                    placeholder="Enter Expense Name">
+            </div>
             <div class="form_field">
                 <label for="expenseAmount" class="form_label">Amount</label>
-                <input type="text" class="form_input" name="expenseAmount" id="expenseAmount" placeholder="Enter Expense amount">
-            </div>  
+                <input type="text" class="form_input" name="expenseAmount" id="expenseAmount"
+                    placeholder="Enter Expense amount">
+            </div>
             <div class="form_field">
                 <label for="expenseCategory" class="form_label">Category</label>
                 <select class="form_input" name="expenseCategory" id="expenseCategory">
@@ -28,13 +30,149 @@
             </div>
             <div class="form_field">
                 <label for="expenseDate" class="form_label">Date</label>
-                <input type="date" class="form_input" name="expenseDate" id="expenseDate" placeholder="Enter Expense date">
-            </div>   
+                <input type="date" class="form_input" name="expenseDate" id="expenseDate"
+                    placeholder="Enter Expense date">
+            </div>
             <div class="form_field">
-                <input type="submit" value="Add Expense"class="form_submit">
-            </div>          
-            </form>
+                <input type="submit" value="Add Expense" class="form_submit">
+            </div>
+        </form>
+    </div>
+</div>
+{% if flag %}
+<div class="expense_breakdown_container">
+    <div class="expense_breakdown_main">
+        <div class="expense_heading">
+            <h3 class="container_heading">Expense Breakdown</h3>
+        </div>
+        <div class="expenses">
+            {% for expense in expenses %}
+            <div class="expense_field">
+                <p class="expense_date">
+                    {{ expense.expenseDate}}
+                </p>
+                <p class="expense_name">
+                    {{ expense.expenseName}}
+                </p>
+                <p class="expense_category">
+                    {{ expense.expenseCategory}}
+                </p>
+                <p class="expesne_amount">
+                    &#8377; {{ expense.expenseAmount }}
+                </p>
+            </div>
+            {% endfor %}
+            <div class="expense_field">
+                <p class="expense_total">
+                    Total
+                </p>
+                <p class="expesne_amount">
+                    &#8377; {{ total }}
+                </p>
+            </div>
         </div>
     </div>
+
+    <div class="expense_breakdown_main">
+        <div class="expense_heading">
+            <h3 class="container_heading">Category Breakdown</h3>
+        </div>
+        <div class="expenses">
+            <div class="expense_field">
+                <p class="expense_name category_name_mod" id="itotalTravel">
+                    Travel
+                </p>
+                <span class="symbole" > &#8377;</span>
+                <p class="expesne_amount" id="itotalTravelAmt">
+                     {{ totalTravel }}
+                </p>
+            </div>
+            <div class="expense_field">
+                <p class="expense_name category_name_mod" id="itotalFood">
+                    Food
+                </p>
+                <span class="symbole"> &#8377;</span>
+                <p class="expesne_amount" id="itotalFoodAmt">
+                     {{ totalFood }}
+                </p>
+            </div>
+            <div class="expense_field">
+                <p class="expense_name category_name_mod" id="itotalEnt">
+                    Entertainment
+                </p>
+                <span class="symbole"> &#8377;</span>
+                <p class="expesne_amount" id="itotalEntAmt">
+                     {{ totalEnt }}
+                </p>
+            </div>
+            <div class="expense_field">
+                <p class="expense_name category_name_mod" id="itotalBusi">
+                    Business
+                </p>
+                <span class="symbole"> &#8377;</span>
+                <p class="expesne_amount" id="itotalBusiAmt">
+                     {{ totalBusi }}
+                </p>
+            </div>
+            <div class="expense_field">
+                <p class="expense_name category_name_mod" id="itotalOther">
+                    Other
+                </p>
+                <span class="symbole"> &#8377;</span>
+                <p class="expesne_amount" id="itotalOtherAmt">
+                     {{ totalOther }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="expense_chart_container">
+        <canvas id="myChart" width="400" height="400">
+
+        </canvas>
+        <script>
+            var ctx = document.getElementById('myChart').getContext('2d');
+            let travelAmt = document.getElementById('itotalTravelAmt').innerHTML
+            let foodAmt = document.getElementById('itotalFoodAmt').innerHTML
+            let entAmt = document.getElementById('itotalEntAmt').innerHTML
+            let busiAmt = document.getElementById('itotalBusiAmt').innerHTML
+            let otherAmt = document.getElementById('itotalOtherAmt').innerHTML
+            var myChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Travel', 'Food', 'Entertainment', 'Business', 'Other'],
+                    datasets: [{
+                        label: 'Category wise breakdown',
+                        data: [travelAmt, foodAmt, entAmt, busiAmt, otherAmt],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
+    </div>
+{% endif %}
 
 {% endblock %}
