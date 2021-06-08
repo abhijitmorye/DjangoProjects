@@ -1,0 +1,37 @@
+{% extends 'LMSapp/base.html' %}
+{% block body %}
+
+<div class="container mt-6">
+    <div class="row">
+        <div class="col-md-6">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="bookname">Book Name</label>
+                    <input type="text" class="form-control" name="bookname" id="bookname" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <label for="bookPrice">Book Price</label>
+                    <input type="text" class="form-control" id="bookPrice" name="bookPrice">
+                </div>
+                <div class="form-group">
+                    <label for="bookState">Book Price</label>
+                    <select class="form-control" name="bookState" id="bookState">
+                        <option value="available">Availabel</option>
+                        <option value="notavailable">Not available</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    {% if flag %}
+    <div class="row">
+        <div class="col-md-4">
+           <p>Book added succesfully</p> 
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}
