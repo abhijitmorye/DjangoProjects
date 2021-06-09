@@ -27,7 +27,7 @@ class Books(models.Model):
 class BoorowedBooks(models.Model):
 
     def __str__(self):
-        return self.borrowID
+        return str(self.borrowID)
 
     borrowID = models.IntegerField(primary_key=True)
     stduent = models.ForeignKey(Students, on_delete=models.CASCADE)

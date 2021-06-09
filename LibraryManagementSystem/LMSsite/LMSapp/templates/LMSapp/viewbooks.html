@@ -1,0 +1,31 @@
+{% extends 'LMSapp/base.html' %}
+{% block body %}
+
+<div class="container" style="margin-top: 8rem;">
+    <div class="row">
+        {% for book in data %}
+        <div class="col-md-4">
+            <div class="card mt-5" style="width: 18rem;">
+                <div class="card-body">
+                    <h3 class="card-title">{{book.bookname}}</h3>
+                    <h6 class="card-subtitle mb-2 text-muted">{{book.bookPrice}}</h6>
+                    <p class="card-text">{{book.bookState}}</p>
+                    <a href="#" class="card-link">Update</a>
+                    <a href="#" class="card-link">Delete</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% if flag %}
+    <div class="row">
+        <div class="col-md-4">
+            <p>
+                {{msg}}
+            </p>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}
