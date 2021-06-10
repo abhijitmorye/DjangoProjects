@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Books, Students, BoorowedBooks
 # Create your views here.
@@ -136,3 +136,139 @@ def viewMembers(request):
         context = {'flag': False,
                    'msg': 'No Members are registered here', 'data': allMembers}
         return render(request, 'LMSapp/viewmembers.html', context=context)
+
+
+def updateBook(request, book_id):
+    if request.method == 'POST':
+        bookname_f = request.POST.get('bookname')
+        bookPrice_f = request.POST.get('bookPrice')
+        bookState_f = request.POST.get('bookState')
+        book = Books.objects.get(bookID=request.POST.get('bookID'))
+        oldbookname = book.bookname
+        oldbookprice = book.bookPrice
+        oldbookState = book.bookState
+        if bookname_f == '':
+            book.bookname = oldbookname
+        else:
+            book.bookname = bookname_f
+        if bookPrice_f == '':
+            book.bookPrice = oldbookprice
+        else:
+            book.bookPrice = bookPrice_f
+        if bookState_f == '':
+            book.bookState = oldbookState
+        else:
+            book.bookState = bookState_f
+        book.save()
+        return redirect('/viewbook')
+
+    book = Books.objects.get(bookID=book_id)
+    if book.bookState == 'available':
+        bookSelected = True
+    else:
+        bookSelected = False
+    context = {
+        'book': book,
+        'bookSelected': bookSelected
+    }
+    return render(request, 'LMSapp/updatebook.html', context=context)
+
+
+def bookReturn(request):
+    if request.method == 'POST':
+        studentemailid_f = request.POST.get('studentEmailID')
+        try:
+            studentExists = Students.objects.get(studentEmailID=studentEmailID)
+        except:
+            studentExists = False
+
+        if studentExists is not None:
+            borrowedBooks = []
+            allBorrowedBooks = BoorowedBooks.objects.all()
+            for book in allBorrowedBooks:
+                if book.stduent.studentEmailID == studentemailid_f:
+                    borrowedBooks.append(book.book)
+            if len(borrowedBooks) > 0:
+                context = {
+                    'flag': True,
+                    'borrowedBooks': borrowedBooks,
+                    'Bookflag': True,
+                    'studentExist': True,
+                    'msg': ""
+                }
+                return render(request, 'LMSapp/returnbook.html', context=context)
+            else:
+                context = {
+                    'flag': True,
+                    'borrowedBooks': borrowedBooks,
+                    'Bookflag': False,
+                    'studentExist': True,
+                    'msg': " Student has not borrowed any books from libabry"
+                }
+                return render(request, 'LMSapp/returnbook.html', context=context)
+        else:
+            context = {
+                'flag': True,
+                'borrowedBooks': [],
+                'Bookflag': False,
+                'NoBookFlag': False,
+                'studentExist': False,
+                'msg': " Student does exists"
+            }
+            return render(request, 'LMSapp/returnbook.html', context=context)
+
+    context = {
+        'flag': False,
+        'borrowedBooks': [],
+        'Bookflag': False,
+        'studentExist': False,
+        'msg': ""
+
+    }
+    return render(request, 'LMSapp/returnbook.html', context=context)
+
+
+def returnSucc(request, book_id):
+    try:
+        print(book_id)
+        bookBorrowed = Books.objects.get(bookID=book_id)
+        bookBorrowed.bookState = 'available'
+        bookBorrowed.save()
+        borrowedBooks = BoorowedBooks.objects.all()
+        print(borrowedBooks)
+        for book in borrowedBooks:
+            if book.book.bookID == bookBorrowed.bookID:
+                book.delete()
+            else:
+                return HttpResponse("Something went wrong")
+    except:
+        book = None
+        return HttpResponse("Something went wrong")
+
+    return redirect('/returnbook')
+
+
+def updateMember(request, member_id):
+    if request.method == 'POST':
+        studentName_f = request.POST.get('studentName')
+        studentEmailID_f = request.POST.get('studentEmailID')
+        student = Students.objects.get(studentID=member_id)
+        oldstudentName = student.studentName
+        oldstudentEmailID = student.studentEmailID
+        if studentName_f == '':
+            student.studentName = oldstudentName
+        else:
+            student.studentName = studentName_f
+        if studentEmailID_f == '':
+            student.studentEmailID = oldstudentEmailID
+        else:
+            student.studentEmailID = studentEmailID_f
+        student.save()
+        return redirect('/viewmembers')
+
+    student = Students.objects.get(studentID=member_id)
+    if member is not None:
+        context = {
+            'student': student
+        }
+        return render(request, 'LMSapp/updateMember.html', context=context)

@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <h3 class="card-title">{{student.studentName}}</h3>
                     <h6 class="card-subtitle mb-2 text-muted">{{student.studentEmailID}}</h6>
-                    <a href="#" class="card-link">Update</a>
+                    <a href="{% url 'LMSapp:updatemember' student.studentID %}" class="card-link">Update</a>
                     <a href="#" class="card-link">Delete</a>
                 </div>
             </div>
