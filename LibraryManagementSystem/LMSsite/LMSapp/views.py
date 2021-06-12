@@ -142,7 +142,6 @@ def updateBook(request, book_id):
     if request.method == 'POST':
         bookname_f = request.POST.get('bookname')
         bookPrice_f = request.POST.get('bookPrice')
-        bookState_f = request.POST.get('bookState')
         book = Books.objects.get(bookID=request.POST.get('bookID'))
         oldbookname = book.bookname
         oldbookprice = book.bookPrice
@@ -155,10 +154,6 @@ def updateBook(request, book_id):
             book.bookPrice = oldbookprice
         else:
             book.bookPrice = bookPrice_f
-        if bookState_f == '':
-            book.bookState = oldbookState
-        else:
-            book.bookState = bookState_f
         book.save()
         return redirect('/viewbook')
 
@@ -232,17 +227,18 @@ def returnSucc(request, book_id):
     try:
         print(book_id)
         bookBorrowed = Books.objects.get(bookID=book_id)
+        print("From Book Model ")
+        print(bookBorrowed.bookID)
+        print(bookBorrowed.bookState)
         bookBorrowed.bookState = 'available'
         bookBorrowed.save()
         borrowedBooks = BoorowedBooks.objects.all()
-        print(borrowedBooks)
         for book in borrowedBooks:
+            print(book.book.bookID)
             if book.book.bookID == bookBorrowed.bookID:
                 book.delete()
-            else:
-                return HttpResponse("Something went wrong")
     except:
-        book = None
+        borrowedBooks = None
         return HttpResponse("Something went wrong")
 
     return redirect('/returnbook')
@@ -266,9 +262,70 @@ def updateMember(request, member_id):
         student.save()
         return redirect('/viewmembers')
 
-    student = Students.objects.get(studentID=member_id)
+    member = Students.objects.get(studentID=member_id)
     if member is not None:
         context = {
-            'student': student
+            'student': member
         }
         return render(request, 'LMSapp/updateMember.html', context=context)
+    else:
+        return redirect('/viewmembers')
+
+
+def deleteMemeber(request, member_id):
+    try:
+        print("*******************************")
+        member = Students.objects.get(studentID=member_id)
+        allBorrowedBooks = BoorowedBooks.objects.all()
+        BorrowedBooks = []
+        for book in allBorrowedBooks:
+            if book.stduent.studentID == member.studentID:
+                BorrowedBooks.append(book)
+        if member is not None:
+            if len(BorrowedBooks) > 0:
+                allMembers = Students.objects.all()
+                context = {
+                    'flag': True,
+                    'msg': '{} has boroowed {} from library. Ask him/her to return it to library and then deregister'.format(member.studentName, BorrowedBooks[0].book.bookname),
+                    'data': allMembers
+                }
+                print("Member has book")
+                return render(request, 'LMSapp/viewmembers.html', context=context)
+            else:
+                member.delete()
+                print('From Else')
+                return redirect('/viewmembers')
+    except Exception as e:
+        member = None
+        print(e)
+        print('From except')
+        return redirect('/viewmembers')
+    print('Outer Try')
+    return redirect('/viewmembers')
+
+
+def deleteBook(request, book_id):
+    try:
+        book = Books.objects.get(bookID=book_id)
+        print(book.bookname)
+        print(book.bookState)
+        if book is not None:
+            if book.bookState == 'notavailable':
+                allBooks = Books.objects.all()
+                context = {
+                    'flag': True,
+                    'msg': 'This book is assigned to student. Can not be removed',
+                    'data': allBooks
+                }
+                return render(request, 'LMSapp/viewbooks.html', context=context)
+            else:
+                try:
+                    book.delete()
+                except Exception as ee:
+                    print(ee)
+                return redirect('/viewbook')
+    except Exception as e:
+        print(e)
+        book = None
+        return HttpResponse('Something went wrong')
+    return redirect('/viewbook')

@@ -14,4 +14,7 @@ urlpatterns = [
     path('return/<int:book_id>', views.returnSucc, name='returnsuc'),
     path('updatemember/<int:member_id>',
          views.updateMember, name='updatemember'),
+    path('deregistermember/<int:member_id>',
+         views.deleteMemeber, name='deletemember'),
+    path('deletebook/<int:book_id>', views.deleteBook, name='deletebook'),
 ]
